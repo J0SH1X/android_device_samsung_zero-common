@@ -110,9 +110,6 @@ PRODUCT_PACKAGES += \
     camera.universal7420 \
     Camera2
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    camera2.portability.force_api=1
-
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.legacyencoder=1 \
