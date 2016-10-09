@@ -113,6 +113,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
 
+# Media
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.stagefright.legacyencoder=1 \
+    media.stagefright.less-secure=1
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
