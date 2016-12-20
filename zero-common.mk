@@ -211,10 +211,6 @@ PRODUCT_PACKAGES += \
     init.wifi.rc \
     ueventd.samsungexynos7420.rc
 
-# Samsung
-PRODUCT_PACKAGES += \
-    SamsungServiceMode
-
 # Shims
 PRODUCT_PACKAGES += \
     libshim_gpsd
