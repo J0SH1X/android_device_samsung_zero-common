@@ -1,4 +1,4 @@
-*
+/*
  * Copyright (C) 2015, The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -52,10 +52,10 @@ static struct hw_module_methods_t camera_module_methods = {
 camera_module_t HAL_MODULE_INFO_SYM = {
     .common = {
          .tag = HARDWARE_MODULE_TAG,
-         .module_api_version = CAMERA_MODULE_API_VERSION_2_3,
+         .module_api_version = CAMERA_MODULE_API_VERSION_2_4,
          .hal_api_version = HARDWARE_HAL_API_VERSION,
          .id = CAMERA_HARDWARE_MODULE_ID,
-         .name = "G4 Camera Wrapper",
+         .name = "Samsung Camera Wrapper",
          .author = "The CyanogenMod Project",
          .methods = &camera_module_methods,
          .dso = NULL,
@@ -105,6 +105,7 @@ static int camera_get_number_of_cameras(void)
     return gVendorModule->get_number_of_cameras();
 }
 
+#if 0
 // Camera characteristics
 camera_metadata_t *initStaticInfo(int camera_id)
 {
@@ -266,6 +267,7 @@ camera_metadata_t *initStaticInfo(int camera_id)
     /* End of static camera characteristics */
     return clone_camera_metadata(m.get());
 }
+#endif
 
 static int camera_get_camera_info(int camera_id, struct camera_info *info)
 {
@@ -276,7 +278,7 @@ static int camera_get_camera_info(int camera_id, struct camera_info *info)
     gVendorModule->get_camera_info(camera_id, info);
 
     // Hack missing metadata into camera info
-    info->static_camera_characteristics = initStaticInfo(camera_id);
+//    info->static_camera_characteristics = initStaticInfo(camera_id);
     
     return 0;
 }
