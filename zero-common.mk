@@ -94,9 +94,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Gello
 
-# Camera
+#Camera
 PRODUCT_PACKAGES += \
-    Snap
+    camera.univseral.7420
+
+
+# Camera
+#PRODUCT_PACKAGES += \
+#    Snap
+
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -167,7 +173,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.nfc.sec_hal=true \
     wifi.interface=wlan0 \
     debug.hwc.force_gpu=1 \
-    ro.bq.gpu_to_cpu_unsupported=1
+    ro.bq.gpu_to_cpu_unsupported=1 \
+    persist.camera.HAL3.enabled=1
 
 # Radio
 PRODUCT_PACKAGES += \
@@ -220,3 +227,6 @@ $(call inherit-product, hardware/samsung_slsi-cm/exynos7420/exynos7420.mk)
 
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/samsung/zero-common/zero-common-vendor.mk)
+
+# Proprietary
+$(call inherit-product, device/samsung/zero-common/proprietary.mk)
