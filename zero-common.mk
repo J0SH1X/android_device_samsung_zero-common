@@ -90,15 +90,15 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     tinymix
 
-# Browser
+# Gello
 PRODUCT_PACKAGES += \
     Gello
 
 #Camera
 PRODUCT_PACKAGES += \
-    camera.univseral.7420
-
-
+    camera.univseral.7420 \
+    Camera2
+    
 # Camera
 #PRODUCT_PACKAGES += \
 #    Snap
