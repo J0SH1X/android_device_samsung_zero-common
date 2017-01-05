@@ -115,13 +115,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
     
     
-# Fingerprint
-PRODUCT_PACKAGES += \
-    fingerprintd \
-    libglib \
-    libfprint \
-    fingerprint.m86
-    
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
