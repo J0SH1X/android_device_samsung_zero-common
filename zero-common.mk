@@ -97,13 +97,9 @@ PRODUCT_PACKAGES += \
 #Camera
 PRODUCT_PACKAGES += \
     camera.univseral.7420 \
-    Camera2
+    Camera2 \
+    Snap
     
-# Camera
-#PRODUCT_PACKAGES += \
-#    Snap
-
-
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
