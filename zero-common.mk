@@ -107,8 +107,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprintd \
-    fingerprint.exynos5 \
-    ValidityService
+    libglib \
+    libfprint \
+    fingerprint.m86
     
 # Filesystem management tools
 PRODUCT_PACKAGES += \
