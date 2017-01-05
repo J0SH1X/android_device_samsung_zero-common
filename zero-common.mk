@@ -96,9 +96,12 @@ PRODUCT_PACKAGES += \
 
 #Camera
 PRODUCT_PACKAGES += \
-    camera.univseral.7420 \
+    camera.univseral7420 \
     Camera2 \
     Snap
+    
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera2.portability.force_api=1
     
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -120,7 +123,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/Synaptics_HID_TouchPad.idc:system/usr/idc/Synaptics_HID_TouchPad.idc \
     $(LOCAL_PATH)/idc/ft5x06_ts.idc:system/usr/idc/ft5x06_ts.idc \
     $(LOCAL_PATH)/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
-
+    
 # Lights
 PRODUCT_PACKAGES += \
     lights.universal7420
@@ -190,8 +193,8 @@ PRODUCT_PACKAGES += \
 
 # Samsung
 PRODUCT_PACKAGES += \
-    SamsungServiceMode
-
+    SamsungServiceMode 
+    
 # Shims
 PRODUCT_PACKAGES += \
     libshim_gpsd
