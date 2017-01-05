@@ -93,10 +93,10 @@ PRODUCT_PACKAGES += \
 # Gello
 PRODUCT_PACKAGES += \
     Gello
-
+    
 #Camera
 PRODUCT_PACKAGES += \
-    camera.univseral7420 \
+    camera.universal7420 \
     Camera2 \
     Snap
     
