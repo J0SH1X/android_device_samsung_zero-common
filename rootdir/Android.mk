@@ -27,6 +27,7 @@ include $(BUILD_PREBUILT)
 endif
 
 include $(CLEAR_VARS)
+LOCAL_MODULE            := init.bluetooth.rc
 LOCAL_MODULE_TAGS       := optional eng
 LOCAL_MODULE_CLASS      := BOOT
 LOCAL_SRC_FILES         := etc/init.bluetooth.rc
