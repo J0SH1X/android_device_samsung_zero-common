@@ -273,23 +273,8 @@ PRODUCT_COPY_FILES += \
 
 # Radio
 PRODUCT_COPY_FILES += \
-    $(BLOB_PATH)/bin/rild:system/bin/rild \
-    $(BLOB_PATH)/lib/libril.so:system/lib/libril.so \
-    $(BLOB_PATH)/lib/libreference-ril.so:system/lib/libreference-ril.so \
-    $(BLOB_PATH)/lib/libsec-ril.so:system/lib/libsec-ril.so \
-    $(BLOB_PATH)/lib/libsec-ril-dsds.so:system/lib/libsec-ril-dsds.so \
     $(BLOB_PATH)/lib/libsecnativefeature.so:system/lib/libsecnativefeature.so \
-    $(BLOB_PATH)/lib/libsecril-client.so:system/lib/libsecril-client.so \
-    $(BLOB_PATH)/lib/libxml2.so:system/lib/libxml2.so \
-    $(BLOB_PATH)/lib/libprotobuf-cpp-full.so:system/lib/libprotobuf-cpp-full.so \
-    $(BLOB_PATH)/lib64/libril.so:system/lib64/libril.so \
-    $(BLOB_PATH)/lib64/libreference-ril.so:system/lib64/libreference-ril.so \
-    $(BLOB_PATH)/lib64/libsec-ril.so:system/lib64/libsec-ril.so \
-    $(BLOB_PATH)/lib64/libsec-ril-dsds.so:system/lib64/libsec-ril-dsds.so \
-    $(BLOB_PATH)/lib64/libsecnativefeature.so:system/lib64/libsecnativefeature.so \
-    $(BLOB_PATH)/lib64/libsecril-client.so:system/lib64/libsecril-client.so \
-    $(BLOB_PATH)/lib64/libxml2.so:system/lib64/libxml2.so \
-    $(BLOB_PATH)/lib64/libprotobuf-cpp-full.so:system/lib64/libprotobuf-cpp-full.so \
+    $(BLOB_PATH)/lib64/libsecnativefeature.so:system/lib64/libsecnativefeature.so
 
 # Sensors
 PRODUCT_COPY_FILES += \
