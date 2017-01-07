@@ -42,8 +42,8 @@
 
 # JPEG
 /dev/m2m1shot_jpeg	  0660   media      media
-/dev/video13              0660   media      media
-/dev/video14              0660   media      media
+/dev/video13              0660   media      camera
+/dev/video14              0660   media      camera
 
 # mfc
 /dev/video6               0660   media      drmrpc
