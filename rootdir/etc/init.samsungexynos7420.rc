@@ -1,24 +1,18 @@
 import init.samsungexynos7420.usb.rc
 import init.wifi.rc
 import init.baseband.rc
-import init.bluetooth.rc
 import init.carrier.rc
 
 on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
 
 on init
-    start watchdogd
-
     export LD_SHIM_LIBS "/system/bin/gpsd|libshim_gpsd.so:/system/vendor/lib/libwvm.so|libshim_wvm.so"
     mkdir /preload 0771 system system
 
     # Support legacy paths
-    symlink /sdcard /mnt/sdcard
-
-    export EXTERNAL_STORAGE /sdcard
-
-    #export SECONDARY_STORAGE /storage/extSdCard
+    symlink /sdcard /storage/sdcard0
+    symlink /storage/usbdisk /mnt/usbdisk
 
     symlink /data/app /factory
 
@@ -30,8 +24,6 @@ on post-fs
     write /sys/block/sda/queue/read_ahead_kb 256
 
 on post-fs-data
-    mkdir /data/media 0770 media_rw media_rw
-
     setprop vold.post_fs_data_done 1
 
 # Permissions for audio
@@ -54,7 +46,7 @@ on post-fs-data
     chmod 0660 /efs/maxim/rdc_cal
     chown media system /data/firmware
 
-# Permissions Camera
+    # Permissions Camera
     mkdir /data/camera 0770 media system
     chown system radio /sys/class/camera/rear/rear_camfw
     chown system radio /sys/class/camera/rear/rear_camfw_full
@@ -103,12 +95,16 @@ on post-fs-data
     chown system system /sys/class/sec/led/led_br_lev
     chown system system /sys/class/sec/led/led_lowpower
 
-# Audience
+    # Audience
     chown system audio /sys/class/earsmart/control/power_control_set
     chown system audio /sys/class/earsmart/control/route_value
     chown system audio /sys/class/earsmart/control/veq_control_set
     chown system audio /sys/class/earsmart/control/extra_volume
     chown system audio /sys/class/earsmart/control/always_stream_fs_on
+
+# Vibrations
+    chown system system /sys/class/timed_output/vibrator/enable
+    chown system system /sys/class/timed_output/vibrator/intensity
 
 # permission for CHARGING
    chown system radio /sys/class/power_supply/battery/batt_discharging_check
@@ -184,8 +180,8 @@ on post-fs-data
     chown media system /dev/socket/uibc
     chmod 0775 /dev/socket/uibc
 
-    # Vibetonz
-    chmod 0660 /dev/tspdrv
+    # Vibetonz 
+    chmod 0660 /dev/tspdrv 
     chown vibe vibe /dev/tspdrv
 
     # for BT MAC address
@@ -468,6 +464,9 @@ on boot
     # ASV
     chown system system /d/asv_summary
 
+    chown bluetooth net_bt_stack /dev/ttySAC4
+    chmod 0660 /dev/ttySAC4
+
 # mobicore
     chmod 0660 /dev/s5p-smem
     chmod 0660 /dev/t-base-tui
@@ -500,6 +499,15 @@ on boot
 # MSP FactoryApp
     mkdir /efs/FactoryApp 0775 system system
 
+# permissions for bluetooth.
+    setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
+    chown bluetooth net_bt_stack ro.bt.bdaddr_path
+    chown radio net_bt_stack /efs/bluetooth/bt_addr
+    chmod 0640 /efs/bluetooth/bt_addr
+    chmod 0660 /sys/class/rfkill/rfkill0/state
+    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
+    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
+
 #for datarouter
     chown system system /dev/dun
     chown system system /dev/ttyGS0
@@ -519,7 +527,6 @@ on boot
 
 on fs
     mount_all /fstab.samsungexynos7420
-    setprop ro.crypto.fuse_sdcard true
 
     #For Absolute Persistence Partition
     mkdir /persdata 0755 system system
@@ -1011,7 +1018,6 @@ on charger
 service battery_charger /sbin/healthd -c
     class charger
     critical
-    seclabel u:r:healthd:s0
 
 # DRK/CS service
 service cs_service /system/bin/cs

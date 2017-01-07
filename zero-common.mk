@@ -104,17 +104,17 @@ PRODUCT_COPY_FILES += \
 # Gello
 PRODUCT_PACKAGES += \
     Gello
-
+    
 #Camera
 PRODUCT_PACKAGES += \
     camera.universal7420 \
     Camera2 \
     Snap
-
+    
 PRODUCT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
-
-
+    
+    
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
@@ -135,7 +135,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/Synaptics_HID_TouchPad.idc:system/usr/idc/Synaptics_HID_TouchPad.idc \
     $(LOCAL_PATH)/idc/ft5x06_ts.idc:system/usr/idc/ft5x06_ts.idc \
     $(LOCAL_PATH)/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
-
+    
 # Lights
 PRODUCT_PACKAGES += \
     lights.universal7420
@@ -143,7 +143,7 @@ PRODUCT_PACKAGES += \
 # Libstlport
 PRODUCT_PACKAGES += \
     libstlport
-
+    
 # LiveDisplay native
 PRODUCT_PACKAGES += \
     libjni_livedisplay
@@ -160,7 +160,7 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
-
+    
 # Haters gonna hate..
 PRODUCT_CHARACTERISTICS := nosdcard
 
@@ -195,16 +195,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.HAL3.enabled=1
 
 # Radio
-# PRODUCT_PACKAGES += \
-#     libxml2 \
-#     libprotobuf-cpp-full
+PRODUCT_PACKAGES += \
+    libxml2 \
+    libprotobuf-cpp-full
 
 
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.samsungexynos7420 \
     init.baseband.rc \
-    init.bluetooth.rc \
     init.gps.rc \
     init.samsungexynos7420.rc \
     init.samsungexynos7420.usb.rc \
@@ -213,8 +212,8 @@ PRODUCT_PACKAGES += \
 
 # Samsung
 PRODUCT_PACKAGES += \
-    SamsungServiceMode
-
+    SamsungServiceMode 
+    
 # Shims
 PRODUCT_PACKAGES += \
     libshim_gpsd
@@ -238,7 +237,7 @@ PRODUCT_COPY_FILES += \
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=adb
+    persist.sys.usb.config=mtp
 
 # call Samsung LSI board support package
 $(call inherit-product, hardware/samsung_slsi-cm/exynos5/exynos5.mk)
