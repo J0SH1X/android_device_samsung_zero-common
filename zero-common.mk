@@ -204,7 +204,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     fstab.samsungexynos7420 \
     init.baseband.rc \
-		init.bluetooth.tc \
+    init.bluetooth.tc \
     init.gps.rc \
     init.samsungexynos7420.rc \
     init.samsungexynos7420.usb.rc \
