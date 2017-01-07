@@ -195,9 +195,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.HAL3.enabled=1
 
 # Radio
-PRODUCT_PACKAGES += \
-    libxml2 \
-    libprotobuf-cpp-full
+# PRODUCT_PACKAGES += \
+#     libxml2 \
+#     libprotobuf-cpp-full
 
 
 # Ramdisk
