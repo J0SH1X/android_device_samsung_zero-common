@@ -111,3 +111,4 @@ void vendor_load_properties()
     device = property_get("ro.product.device");
     INFO("Found bootloader id %s setting build properties for %s device\n", bootloader.c_str(), device.c_str());
 }
+
