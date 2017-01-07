@@ -204,7 +204,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.samsungexynos7420 \
     init.baseband.rc \
-		init.bluetooth.tc \
+    init.bluetooth.rc \
     init.gps.rc \
     init.samsungexynos7420.rc \
     init.samsungexynos7420.usb.rc \
