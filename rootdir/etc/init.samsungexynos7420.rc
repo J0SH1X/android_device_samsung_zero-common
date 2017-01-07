@@ -1,6 +1,7 @@
 import init.samsungexynos7420.usb.rc
 import init.wifi.rc
 import init.baseband.rc
+import init.bluetooth.rc
 import init.carrier.rc
 
 on early-init
@@ -464,9 +465,6 @@ on boot
     # ASV
     chown system system /d/asv_summary
 
-    chown bluetooth net_bt_stack /dev/ttySAC4
-    chmod 0660 /dev/ttySAC4
-
 # mobicore
     chmod 0660 /dev/s5p-smem
     chmod 0660 /dev/t-base-tui
@@ -498,15 +496,6 @@ on boot
 
 # MSP FactoryApp
     mkdir /efs/FactoryApp 0775 system system
-
-# permissions for bluetooth.
-    setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
-    chown bluetooth net_bt_stack ro.bt.bdaddr_path
-    chown radio net_bt_stack /efs/bluetooth/bt_addr
-    chmod 0640 /efs/bluetooth/bt_addr
-    chmod 0660 /sys/class/rfkill/rfkill0/state
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/state
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill0/type
 
 #for datarouter
     chown system system /dev/dun
