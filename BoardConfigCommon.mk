@@ -44,10 +44,6 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_HAVE_SAMSUNG_BLUETOOTH := true
 
-# Boot animation
-TARGET_BOOTANIMATION_PRELOAD := true
-TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := universal7420
 TARGET_NO_BOOTLOADER := true
@@ -77,7 +73,7 @@ USE_OPENGL_RENDERER := true
 VSYNC_EVENT_PHASE_OFFSET_NS := 7500000
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 5000000
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 5
-BOARD_USES_VIRTUAL_DISPLAY := true
+BOARD_USES_VIRTUAL_DISPLAY := true5
 
 # (G)SCALER
 BOARD_USES_SCALER := true
@@ -165,6 +161,9 @@ BOARD_SEPOLICY_DIRS := $(LOCAL_PATH)/sepolicy
 ifneq ($(strip $(wildcard $(TOP)/bootable/recovery/variables.h)),)
 -include device/samsung/zero-common/twrp.mk
 endif
+
+# WEBGL
+ENABLE_WEBGL := true
 
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI          := true
