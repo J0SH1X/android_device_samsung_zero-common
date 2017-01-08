@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2014 The CyanogenMod Project
+ * Copyright (C) 2016 The Dokdo Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -98,12 +98,6 @@ public class zeroRIL extends RIL implements CommandsInterface {
         return cardStatus;
     }
 
-    @Override
-    public void setPhoneType(int phoneType){
-        super.setPhoneType(phoneType);
-        isGsm = (phoneType != RILConstants.CDMA_PHONE);
-    }
-
     protected Object
     responseCallList(Parcel p) {
         int num;
@@ -128,29 +122,17 @@ public class zeroRIL extends RIL implements CommandsInterface {
             dc.isMpty = (0 != p.readInt());
             dc.isMT = (0 != p.readInt());
             dc.als = p.readInt();
-            dc.isVoice = (0 != p.readInt());
-
-            if (!isGsm) {
-                int call_type = p.readInt(); // samsung call detail
-                int call_domain = p.readInt(); // samsung call detail
-                String csv = p.readString(); // samsung call detail
-            }
-
+            voiceSettings = p.readInt();
+            dc.isVoice = (0 == voiceSettings) ? false : true;
+            p.readInt(); // samsung call detail
+            p.readInt(); // samsung call detail
+            p.readString(); // samsung call detail
             dc.isVoicePrivacy = (0 != p.readInt());
-
             dc.number = p.readString();
-            if (RILJ_LOGV) {
-                riljLog("responseCallList dc.number=" + dc.number);
-            }
-
-            dc.numberPresentation = DriverCall.presentationFromCLIP(p.readInt());
+            int np = p.readInt();
+            dc.numberPresentation = DriverCall.presentationFromCLIP(np);
             dc.name = p.readString();
-            if (RILJ_LOGV) {
-                riljLog("responseCallList dc.name=" + dc.name);
-            }
-            // according to ril.h, namePresentation should be handled as numberPresentation;
-            dc.namePresentation = DriverCall.presentationFromCLIP(p.readInt());
-
+            dc.namePresentation = p.readInt();
             int uusInfoPresent = p.readInt();
             if (uusInfoPresent == 1) {
                 dc.uusInfo = new UUSInfo();
@@ -196,9 +178,8 @@ public class zeroRIL extends RIL implements CommandsInterface {
         return response;
     }
 
-    @Override
     protected void
-    processUnsolicited (Parcel p, int type) {
+    processUnsolicited (Parcel p) {
         Object ret;
         int dataPosition = p.dataPosition(); // save off position within the Parcel
         int response = p.readInt();
@@ -221,9 +202,6 @@ public class zeroRIL extends RIL implements CommandsInterface {
                 // Rewind the Parcel
                 p.setDataPosition(dataPosition);
                 if(DBG) Rlog.d("SHRILGET", "UNKNOWN UNSL: " + response);
-
-                // Forward responses that we are not overriding to the super class
-                super.processUnsolicited(p, type);
                 return;
         }
     }
