@@ -1,4 +1,0 @@
-# Platform
-TARGET_BOARD_PLATFORM := exynos5
-TARGET_SOC := exynos7420
-TARGET_SLSI_VARIANT := cm
