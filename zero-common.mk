@@ -149,8 +149,8 @@ PRODUCT_PACKAGES += \
     libjni_livedisplay
 
 # MDNIE
-#PRODUCT_PACKAGES += \
-#    AdvancedDisplay
+PRODUCT_PACKAGES += \
+    AdvancedDisplay
 
 # Media profile
 PRODUCT_COPY_FILES += \
