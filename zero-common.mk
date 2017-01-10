@@ -107,7 +107,6 @@ PRODUCT_PACKAGES += \
 
 #Camera
 PRODUCT_PACKAGES += \
-    camera.universal7420 \
     Camera2
 
 # Media
