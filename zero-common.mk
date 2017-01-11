@@ -67,7 +67,7 @@ PRODUCT_PACKAGES += \
     libshim_wvm
 
 # Include package config fragments
-include $(LOCAL_PATH)/product/*.mk
+-include $(LOCAL_PATH)/product/*.mk
 
 # call Samsung LSI board support package
 $(call inherit-product, hardware/samsung_slsi-cm/exynos5/exynos5.mk)

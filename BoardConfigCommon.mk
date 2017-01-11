@@ -24,6 +24,8 @@ BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := exynos5
 TARGET_SOC := exynos7420
 TARGET_SLSI_VARIANT := cm
+TARGET_BOOTLOADER_BOARD_NAME := universal7420
+TARGET_NO_BOOTLOADER := true
 
 # Binder
 TARGET_USES_64_BIT_BINDER := true
@@ -45,7 +47,7 @@ BLOCK_BASED_OTA := false
 BOARD_SEPOLICY_DIRS := $(LOCAL_PATH)/sepolicy
 
 # Inherit board specific defines
-include device/samsung/zero-common/board/*.mk
+-include device/samsung/zero-common/board/*.mk
 
 # Inherit from the proprietary version
 -include vendor/samsung/zero-common/BoardConfigVendor.mk

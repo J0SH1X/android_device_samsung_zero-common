@@ -1,3 +1,0 @@
-# Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := universal7420
-TARGET_NO_BOOTLOADER := true
