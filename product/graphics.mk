@@ -1,6 +1,7 @@
 # Graphics
 PRODUCT_PACKAGES += \
-    gralloc.exynos5
+    libion_exynos \
+    libfimg \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwc.force_gpu=1 \
