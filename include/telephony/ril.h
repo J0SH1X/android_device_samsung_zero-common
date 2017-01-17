@@ -2030,7 +2030,6 @@ typedef struct {
  * RIL_REQUEST_CONFERENCE
  *
  * Conference holding and active (like AT+CHLD=3)
-
  * "data" is NULL
  * "response" is NULL
  *
@@ -4693,7 +4692,6 @@ typedef struct {
  *  NO_SUCH_ELEMENT
  */
 #define RIL_REQUEST_SIM_OPEN_CHANNEL 115
-
 /**
  * RIL_REQUEST_SIM_CLOSE_CHANNEL
  *
@@ -5463,7 +5461,6 @@ typedef struct {
  * Indicates that SIM state changes.
  *
  * Callee will invoke RIL_REQUEST_GET_SIM_STATUS on main thread
-
  * "data" is null
  */
 #define RIL_UNSOL_RESPONSE_SIM_STATUS_CHANGED 1019
