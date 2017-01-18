@@ -523,18 +523,6 @@ on boot
     chmod 0640 /dev/fmradio
     chown system system /dev/fmradio
 
-    # Symlink telephony.db and preferred-apn.xml
-    mkdir /data/data/com.android.providers.telephony/databases 0700 radio radio
-    mkdir /data/data/com.android.providers.telephony/shared_prefs 0700 radio radio
-    symlink /data/user_de/0/com.android.providers.telephony/databases/telephony.db /data/data/com.android.providers.telephony/databases/telephony.db
-    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs/preferred-apn.xml /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
-
-on early-boot
-    # Remove symlinks to avoid issues with migrate after nandroid restores
-    # Will be recreated at end of boot
-    rm /data/data/com.android.providers.telephony/databases/telephony.db
-    rm /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
-
 on fs
     mount_all /fstab.samsungexynos7420
 
@@ -811,7 +799,7 @@ on fs
     chown system radio /sys/class/sensors/irled_remote/irled_send_result
 
 # Default MDNIE mode (cinema)
-#    write /sys/class/mdnie/mdnie/mode 3
+    write /sys/class/mdnie/mdnie/mode 3
 
 # Copy DRM Key
     copy /system/app/wv.keys /factory/wv.keys
