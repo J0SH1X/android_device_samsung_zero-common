@@ -43,6 +43,9 @@ TARGET_UNIFIED_DEVICE := true
 # Package
 BLOCK_BASED_OTA := false
 
+# Pre-optimization
+WITH_DEXPREOPT := true
+
 # Sepolicy
 BOARD_SEPOLICY_DIRS := $(LOCAL_PATH)/sepolicy
 
