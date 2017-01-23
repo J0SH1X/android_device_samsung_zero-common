@@ -1,3 +1,3 @@
-ifneq ($(TARGET_BUILD_VARIANT),user)
+#ifneq ($(TARGET_BUILD_VARIANT),user)
 	WITH_SU := true
-endif
+#endif
